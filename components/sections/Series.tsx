@@ -42,7 +42,7 @@ export default function Series({ locale, dict, seriesList }: Props) {
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #06020f 0%, #0e0030 50%, #06020f 100%)',
+        background: 'linear-gradient(180deg, #0d0028 0%, #1a0045 50%, #0d0028 100%)',
       }}
     >
       <div className="section-gutter max-w-5xl mx-auto">

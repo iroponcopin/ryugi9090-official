@@ -36,7 +36,7 @@ export default function SocialCTA({ locale, dict }: Props) {
       style={{
         background:
           'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(247,37,133,0.10) 0%, transparent 70%), ' +
-          'linear-gradient(180deg, #06020f 0%, #0a0120 100%)',
+          'linear-gradient(180deg, #0d0028 0%, #140035 100%)',
       }}
     >
       {/* Top divider glow */}

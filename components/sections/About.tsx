@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 import type { Locale, Dictionary } from '@/i18n'
 import { series as gameSeries } from '@/data/config'
 
@@ -34,7 +35,7 @@ export default function About({ locale, dict }: Props) {
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #0a0120 0%, #0e0030 50%, #0a0120 100%)',
+        background: 'linear-gradient(180deg, #140035 0%, #1a0045 50%, #140035 100%)',
       }}
     >
       {/* Section glow */}
@@ -53,35 +54,22 @@ export default function About({ locale, dict }: Props) {
 
           {/* Avatar */}
           <motion.div {...fadeUp(0.1)} className="flex flex-col items-center md:items-start gap-4" suppressHydrationWarning>
-            {/* CSS-only avatar — geometric placeholder */}
+            {/* Avatar */}
             <div
               className="relative w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0"
               style={{
-                background: 'linear-gradient(135deg, #1a0035 0%, #0e0025 100%)',
-                border: '1px solid rgba(247,37,133,0.35)',
-                boxShadow: '0 0 30px rgba(247,37,133,0.18)',
+                border: '1px solid rgba(247,37,133,0.40)',
+                boxShadow: '0 0 32px rgba(247,37,133,0.22)',
               }}
             >
-              {/* Decorative geometric pattern */}
-              <div
-                className="absolute inset-0 opacity-20"
-                style={{
-                  background:
-                    'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(247,37,133,0.20) 10px, rgba(247,37,133,0.20) 11px)',
-                }}
+              <Image
+                src="/about/avatar.png"
+                alt="竜義9090"
+                fill
+                sizes="112px"
+                className="object-cover"
+                priority
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span
-                  className="text-3xl font-bold select-none"
-                  style={{
-                    background: 'linear-gradient(135deg, var(--color-crimson) 0%, var(--color-gold) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  竜
-                </span>
-              </div>
             </div>
 
             {/* Name under avatar */}

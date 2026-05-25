@@ -36,7 +36,7 @@ export default function Header({ locale, dict }: Props) {
       className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
       style={{
         background: scrolled
-          ? 'rgba(6,2,15,0.88)'
+          ? 'rgba(13,0,40,0.90)'
           : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : undefined,
         WebkitBackdropFilter: scrolled ? 'blur(16px)' : undefined,
@@ -102,7 +102,7 @@ export default function Header({ locale, dict }: Props) {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="md:hidden overflow-hidden"
             style={{
-              background: 'rgba(6,2,15,0.95)',
+              background: 'rgba(13,0,40,0.96)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               borderBottom: '1px solid rgba(247,37,133,0.18)',

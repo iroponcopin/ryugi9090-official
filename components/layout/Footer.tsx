@@ -14,7 +14,7 @@ export default function Footer({ locale, dict }: Props) {
     <footer
       className="relative"
       style={{
-        background: '#06020f',
+        background: '#0d0028',
         borderTop: '1px solid rgba(247,37,133,0.15)',
       }}
     >

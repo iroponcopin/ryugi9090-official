@@ -41,7 +41,7 @@ export default function FeaturedVideos({ locale, dict, videos }: Props) {
       id="videos"
       ref={ref}
       className="relative py-24 md:py-32"
-      style={{ background: 'linear-gradient(180deg, #0a0120 0%, #06020f 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #140035 0%, #0d0028 100%)' }}
     >
       {/* Background glow */}
       <div

@@ -61,7 +61,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
         background:
           'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(247,37,133,0.14) 0%, transparent 55%), ' +
           'radial-gradient(ellipse 50% 40% at 85% 60%, rgba(76,201,240,0.08) 0%, transparent 50%), ' +
-          'linear-gradient(180deg, #06020f 0%, #0a0120 60%, #0e0030 100%)',
+          'linear-gradient(180deg, #0d0028 0%, #140035 60%, #1a0045 100%)',
       }}
     >
       <StarField />
