@@ -59,9 +59,9 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
       className="relative min-h-dvh flex items-center overflow-hidden"
       style={{
         background:
-          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(249,115,22,0.08) 0%, transparent 55%), ' +
-          'radial-gradient(ellipse 50% 40% at 85% 60%, rgba(196,125,15,0.06) 0%, transparent 50%), ' +
-          'linear-gradient(180deg, #fffbf7 0%, #fff7ee 60%, #fef3e4 100%)',
+          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(247,37,133,0.14) 0%, transparent 55%), ' +
+          'radial-gradient(ellipse 50% 40% at 85% 60%, rgba(76,201,240,0.08) 0%, transparent 50%), ' +
+          'linear-gradient(180deg, #06020f 0%, #0a0120 60%, #0e0030 100%)',
       }}
     >
       <StarField />
@@ -70,7 +70,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
       <div
         aria-hidden="true"
         className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(249,115,22,0.06) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, rgba(247,37,133,0.08) 0%, transparent 70%)' }}
       />
 
       <div className="section-gutter relative z-10 w-full max-w-7xl mx-auto py-32 pt-40">
@@ -156,7 +156,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
               <div
                 aria-hidden="true"
                 className="absolute -inset-4 rounded-3xl pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse, rgba(249,115,22,0.10) 0%, transparent 70%)' }}
+                style={{ background: 'radial-gradient(ellipse, rgba(247,37,133,0.14) 0%, transparent 70%)' }}
               />
 
               <a

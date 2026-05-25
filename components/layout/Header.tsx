@@ -36,18 +36,18 @@ export default function Header({ locale, dict }: Props) {
       className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
       style={{
         background: scrolled
-          ? 'rgba(255,251,247,0.92)'
+          ? 'rgba(6,2,15,0.88)'
           : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : undefined,
         WebkitBackdropFilter: scrolled ? 'blur(16px)' : undefined,
-        borderBottom: scrolled ? '1px solid rgba(0,0,0,0.08)' : undefined,
+        borderBottom: scrolled ? '1px solid rgba(247,37,133,0.18)' : undefined,
       }}
     >
       <div className="section-gutter max-w-7xl mx-auto flex items-center justify-between h-16">
         {/* Logo */}
         <Link
           href={`/${locale}`}
-          className="font-bold text-lg text-text-primary hover:text-crimson transition-colors duration-150 tracking-tight"
+          className="font-bold text-lg text-text-primary hover:text-crimson-light transition-colors duration-150 tracking-tight"
         >
           竜義9090
         </Link>
@@ -102,10 +102,10 @@ export default function Header({ locale, dict }: Props) {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="md:hidden overflow-hidden"
             style={{
-              background: 'rgba(255,251,247,0.96)',
+              background: 'rgba(6,2,15,0.95)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
-              borderBottom: '1px solid rgba(0,0,0,0.08)',
+              borderBottom: '1px solid rgba(247,37,133,0.18)',
             }}
           >
             <nav className="section-gutter py-4 flex flex-col gap-4" aria-label="Mobile navigation">

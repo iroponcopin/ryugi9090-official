@@ -2,28 +2,28 @@
 
 /* ── Design tokens ─────────────────────────────────────────── */
 @theme {
-  /* Surfaces — warm white */
-  --color-depth-950: #fffbf7;
-  --color-depth-900: #fff7ee;
-  --color-depth-800: #fef3e4;
-  --color-depth-700: #fdebd0;
-  --color-depth-600: #fde3bc;
+  /* Surfaces — dark stage / Nisou Rakuen */
+  --color-depth-950: #06020f;
+  --color-depth-900: #0a0120;
+  --color-depth-800: #0e0030;
+  --color-depth-700: #160040;
+  --color-depth-600: #200050;
 
-  /* Accents — orange */
-  --color-crimson:       #f97316;
-  --color-crimson-light: #fb923c;
-  --color-gold:          #c47d0f;
-  --color-gold-light:    #d4940f;
-  --color-sky:           #0ea5e9;
+  /* Accents — Sparxie pink + cyan */
+  --color-crimson:       #f72585;
+  --color-crimson-light: #ff4da6;
+  --color-gold:          #4cc9f0;
+  --color-gold-light:    #80d8f7;
+  --color-sky:           #a855f7;
 
-  /* Text — dark on light */
-  --color-text-primary:   #1c1917;
-  --color-text-secondary: rgba(28, 25, 23, 0.65);
-  --color-text-muted:     rgba(28, 25, 23, 0.42);
+  /* Text — light on dark */
+  --color-text-primary:   #f8f0ff;
+  --color-text-secondary: rgba(248, 240, 255, 0.65);
+  --color-text-muted:     rgba(248, 240, 255, 0.38);
 
   /* Borders */
-  --color-border-subtle: rgba(0, 0, 0, 0.07);
-  --color-border-card:   rgba(0, 0, 0, 0.09);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-card:   rgba(255, 255, 255, 0.10);
 
   /* Fonts */
   --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
@@ -98,8 +98,8 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar        { width: 6px; }
 ::-webkit-scrollbar-track  { background: var(--color-depth-900); }
-::-webkit-scrollbar-thumb  { background: rgba(0,0,0,0.15); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.28); }
+::-webkit-scrollbar-thumb  { background: rgba(247,37,133,0.35); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(247,37,133,0.60); }
 
 /* Focus ring */
 :focus-visible {
@@ -119,11 +119,11 @@ body {
 
 /* ── Utility classes ───────────────────────────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(14, 0, 48, 0.55);
+  border: 1px solid rgba(247, 37, 133, 0.15);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 24px rgba(247, 37, 133, 0.06);
 }
 
 .section-gutter {
@@ -147,11 +147,11 @@ body {
 }
 
 .glow-crimson {
-  box-shadow: 0 0 40px rgba(249, 115, 22, 0.30), 0 0 80px rgba(249, 115, 22, 0.12);
+  box-shadow: 0 0 40px rgba(247, 37, 133, 0.40), 0 0 80px rgba(247, 37, 133, 0.18);
 }
 
 .glow-gold {
-  box-shadow: 0 0 40px rgba(196, 125, 15, 0.22), 0 0 80px rgba(196, 125, 15, 0.10);
+  box-shadow: 0 0 40px rgba(76, 201, 240, 0.30), 0 0 80px rgba(76, 201, 240, 0.12);
 }
 
 .section-label {

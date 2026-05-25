@@ -41,7 +41,7 @@ export default function Series({ locale, dict, seriesList }: Props) {
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #fef3e4 0%, #fff7ee 50%, #fef3e4 100%)',
+        background: 'linear-gradient(180deg, #06020f 0%, #0e0030 50%, #06020f 100%)',
       }}
     >
       <div className="section-gutter max-w-5xl mx-auto">
@@ -74,8 +74,8 @@ export default function Series({ locale, dict, seriesList }: Props) {
                 className="glass-card rounded-xl p-4 text-center transition-all duration-300 cursor-default"
                 style={{
                   ...(item.accent && {
-                    borderColor: 'rgba(249,115,22,0.30)',
-                    background: 'rgba(249,115,22,0.07)',
+                    borderColor: 'rgba(247,37,133,0.30)',
+                    background: 'rgba(247,37,133,0.08)',
                   }),
                 }}
               >
@@ -84,16 +84,16 @@ export default function Series({ locale, dict, seriesList }: Props) {
                   className="w-8 h-8 rounded-lg mx-auto mb-3 flex items-center justify-center"
                   style={{
                     background: item.accent
-                      ? 'rgba(249,115,22,0.15)'
-                      : 'rgba(0,0,0,0.05)',
+                      ? 'rgba(247,37,133,0.18)'
+                      : 'rgba(255,255,255,0.06)',
                     border: item.accent
-                      ? '1px solid rgba(249,115,22,0.30)'
-                      : '1px solid rgba(0,0,0,0.10)',
+                      ? '1px solid rgba(247,37,133,0.35)'
+                      : '1px solid rgba(255,255,255,0.10)',
                   }}
                 >
                   {item.accent ? (
                     <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
-                      <path d="M8 2L9.5 6.5H14L10.5 9L11.8 13.5L8 11L4.2 13.5L5.5 9L2 6.5H6.5L8 2Z" fill="rgba(249,115,22,0.85)" />
+                      <path d="M8 2L9.5 6.5H14L10.5 9L11.8 13.5L8 11L4.2 13.5L5.5 9L2 6.5H6.5L8 2Z" fill="rgba(247,37,133,0.90)" />
                     </svg>
                   ) : (
                     <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">

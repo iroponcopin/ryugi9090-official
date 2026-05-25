@@ -34,14 +34,14 @@ export default function About({ locale, dict }: Props) {
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #fff7ee 0%, #fef3e4 50%, #fff7ee 100%)',
+        background: 'linear-gradient(180deg, #0a0120 0%, #0e0030 50%, #0a0120 100%)',
       }}
     >
       {/* Section glow */}
       <div
         aria-hidden="true"
         className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none opacity-30"
-        style={{ background: 'radial-gradient(ellipse, rgba(196,125,15,0.08) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
+        style={{ background: 'radial-gradient(ellipse, rgba(76,201,240,0.08) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
       />
 
       <div className="section-gutter max-w-5xl mx-auto">
@@ -57,9 +57,9 @@ export default function About({ locale, dict }: Props) {
             <div
               className="relative w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0"
               style={{
-                background: 'linear-gradient(135deg, #fff3e0 0%, #fde8c8 100%)',
-                border: '1px solid rgba(249,115,22,0.30)',
-                boxShadow: '0 0 30px rgba(249,115,22,0.15)',
+                background: 'linear-gradient(135deg, #1a0035 0%, #0e0025 100%)',
+                border: '1px solid rgba(247,37,133,0.35)',
+                boxShadow: '0 0 30px rgba(247,37,133,0.18)',
               }}
             >
               {/* Decorative geometric pattern */}
@@ -67,7 +67,7 @@ export default function About({ locale, dict }: Props) {
                 className="absolute inset-0 opacity-20"
                 style={{
                   background:
-                    'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(249,115,22,0.25) 10px, rgba(249,115,22,0.25) 11px)',
+                    'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(247,37,133,0.20) 10px, rgba(247,37,133,0.20) 11px)',
                 }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -128,11 +128,11 @@ export default function About({ locale, dict }: Props) {
                     className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium transition-colors duration-150"
                     style={{
                       background: g.accent
-                        ? 'rgba(249,115,22,0.10)'
-                        : 'rgba(0,0,0,0.04)',
+                        ? 'rgba(247,37,133,0.15)'
+                        : 'rgba(255,255,255,0.05)',
                       border: g.accent
-                        ? '1px solid rgba(249,115,22,0.35)'
-                        : '1px solid rgba(0,0,0,0.09)',
+                        ? '1px solid rgba(247,37,133,0.40)'
+                        : '1px solid rgba(255,255,255,0.10)',
                       color: g.accent
                         ? 'var(--color-crimson-light)'
                         : 'var(--color-text-secondary)',
