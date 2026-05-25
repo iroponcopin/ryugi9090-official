@@ -1,26 +1,168 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Design tokens ─────────────────────────────────────────── */
+@theme {
+  /* Surfaces — warm white */
+  --color-depth-950: #fffbf7;
+  --color-depth-900: #fff7ee;
+  --color-depth-800: #fef3e4;
+  --color-depth-700: #fdebd0;
+  --color-depth-600: #fde3bc;
+
+  /* Accents — orange */
+  --color-crimson:       #f97316;
+  --color-crimson-light: #fb923c;
+  --color-gold:          #c47d0f;
+  --color-gold-light:    #d4940f;
+  --color-sky:           #0ea5e9;
+
+  /* Text — dark on light */
+  --color-text-primary:   #1c1917;
+  --color-text-secondary: rgba(28, 25, 23, 0.65);
+  --color-text-muted:     rgba(28, 25, 23, 0.42);
+
+  /* Borders */
+  --color-border-subtle: rgba(0, 0, 0, 0.07);
+  --color-border-card:   rgba(0, 0, 0, 0.09);
+
+  /* Fonts */
+  --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-en: var(--font-inter), 'Inter', system-ui, sans-serif;
+
+  /* Easing */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Animations */
+  --animate-star-drift-a: star-drift-a 18s ease-in-out infinite;
+  --animate-star-drift-b: star-drift-b 24s ease-in-out infinite;
+  --animate-float:        float 7s ease-in-out infinite;
+  --animate-glow-pulse:   glow-pulse 5s ease-in-out infinite;
+  --animate-shimmer:      shimmer 2.2s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes star-drift-a {
+  0%, 100% { transform: translate(0, 0); }
+  33%       { transform: translate(6px, -10px); }
+  66%       { transform: translate(-4px, 6px); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes star-drift-b {
+  0%, 100% { transform: translate(0, 0); }
+  25%       { transform: translate(-8px, 5px); }
+  75%       { transform: translate(5px, -8px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%       { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-depth-950);
+  color: var(--color-text-primary);
+  min-height: 100dvh;
+}
+
+/* Japanese copy uses Noto Sans JP; English uses Inter */
+:lang(ja) {
+  font-family: var(--font-jp);
+  letter-spacing: 0.02em;
+}
+
+:lang(en) {
+  font-family: var(--font-en);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--color-depth-900); }
+::-webkit-scrollbar-thumb  { background: rgba(0,0,0,0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.28); }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-crimson-light);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Utility classes ───────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-gutter {
+  padding-left: clamp(1.25rem, 5vw, 5rem);
+  padding-right: clamp(1.25rem, 5vw, 5rem);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-crimson {
+  background: linear-gradient(135deg, var(--color-crimson) 0%, var(--color-crimson-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-crimson {
+  box-shadow: 0 0 40px rgba(249, 115, 22, 0.30), 0 0 80px rgba(249, 115, 22, 0.12);
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px rgba(196, 125, 15, 0.22), 0 0 80px rgba(196, 125, 15, 0.10);
+}
+
+.section-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-crimson-light);
+}
+
+.line-mask {
+  overflow: hidden;
+  display: block;
 }
