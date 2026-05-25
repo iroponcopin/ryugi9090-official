@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 import type { Locale, Dictionary } from '@/i18n'
 import type { series } from '@/data/config'
 
@@ -79,27 +80,15 @@ export default function Series({ locale, dict, seriesList }: Props) {
                   }),
                 }}
               >
-                {/* Decorative icon — small geometric shape */}
-                <div
-                  className="w-8 h-8 rounded-lg mx-auto mb-3 flex items-center justify-center"
-                  style={{
-                    background: item.accent
-                      ? 'rgba(247,37,133,0.18)'
-                      : 'rgba(255,255,255,0.06)',
-                    border: item.accent
-                      ? '1px solid rgba(247,37,133,0.35)'
-                      : '1px solid rgba(255,255,255,0.10)',
-                  }}
-                >
-                  {item.accent ? (
-                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
-                      <path d="M8 2L9.5 6.5H14L10.5 9L11.8 13.5L8 11L4.2 13.5L5.5 9L2 6.5H6.5L8 2Z" fill="rgba(247,37,133,0.90)" />
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
-                      <rect x="3" y="3" width="10" height="10" rx="2" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" />
-                    </svg>
-                  )}
+                {/* Game icon */}
+                <div className="w-12 h-12 rounded-xl mx-auto mb-3 overflow-hidden">
+                  <Image
+                    src={item.icon}
+                    alt={isJa ? item.nameJa : item.nameEn}
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <p

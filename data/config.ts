@@ -31,9 +31,9 @@ export const featuredVideos = [
 ]
 
 export const series = [
-  { nameJa: '崩壊：スターレイル', nameEn: 'Honkai: Star Rail', accent: true },
-  { nameJa: 'テイルズシリーズ', nameEn: 'Tales Series', accent: false },
-  { nameJa: 'League of Legends', nameEn: 'League of Legends', accent: false },
-  { nameJa: 'モンスターハンター', nameEn: 'Monster Hunter', accent: false },
-  { nameJa: 'APEX Legends', nameEn: 'APEX Legends', accent: false },
+  { nameJa: '崩壊：スターレイル', nameEn: 'Honkai: Star Rail', icon: '/games/honkai-star-rail.png', accent: true },
+  { nameJa: 'テイルズシリーズ', nameEn: 'Tales Series', icon: '/games/tales.png', accent: false },
+  { nameJa: 'League of Legends', nameEn: 'League of Legends', icon: '/games/league-of-legends.png', accent: false },
+  { nameJa: 'モンスターハンター', nameEn: 'Monster Hunter', icon: '/games/monster-hunter.png', accent: false },
+  { nameJa: 'APEX Legends', nameEn: 'APEX Legends', icon: '/games/apex-legends.png', accent: false },
 ]
