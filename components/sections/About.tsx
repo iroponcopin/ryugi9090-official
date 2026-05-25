@@ -63,7 +63,7 @@ export default function About({ locale, dict }: Props) {
               }}
             >
               <Image
-                src="/about/avatar.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/about/avatar.png`}
                 alt="竜義9090"
                 fill
                 sizes="112px"

@@ -83,7 +83,7 @@ export default function Series({ locale, dict, seriesList }: Props) {
                 {/* Game icon */}
                 <div className="w-12 h-12 rounded-xl mx-auto mb-3 overflow-hidden">
                   <Image
-                    src={item.icon}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}${item.icon}`}
                     alt={isJa ? item.nameJa : item.nameEn}
                     width={48}
                     height={48}
