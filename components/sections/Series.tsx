@@ -42,7 +42,7 @@ export default function Series({ locale, dict, seriesList }: Props) {
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #0d0028 0%, #1a0045 50%, #0d0028 100%)',
+        background: 'linear-gradient(180deg, #fffdf8 0%, #faf3e7 50%, #fffdf8 100%)',
       }}
     >
       <div className="section-gutter max-w-5xl mx-auto">
@@ -75,8 +75,8 @@ export default function Series({ locale, dict, seriesList }: Props) {
                 className="glass-card rounded-xl p-4 text-center transition-all duration-300 cursor-default"
                 style={{
                   ...(item.accent && {
-                    borderColor: 'rgba(247,37,133,0.30)',
-                    background: 'rgba(247,37,133,0.08)',
+                    borderColor: 'rgba(214,168,79,0.45)',
+                    background: 'rgba(214,168,79,0.10)',
                   }),
                 }}
               >

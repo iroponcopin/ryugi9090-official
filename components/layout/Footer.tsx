@@ -14,8 +14,8 @@ export default function Footer({ locale, dict }: Props) {
     <footer
       className="relative"
       style={{
-        background: '#0d0028',
-        borderTop: '1px solid rgba(247,37,133,0.15)',
+        background: '#f7efe0',
+        borderTop: '1px solid rgba(214,168,79,0.28)',
       }}
     >
       <div className="section-gutter max-w-6xl mx-auto py-10">

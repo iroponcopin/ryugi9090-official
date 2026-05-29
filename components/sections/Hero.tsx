@@ -59,9 +59,9 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
       className="relative min-h-dvh flex items-center overflow-hidden"
       style={{
         background:
-          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(247,37,133,0.14) 0%, transparent 55%), ' +
-          'radial-gradient(ellipse 50% 40% at 85% 60%, rgba(76,201,240,0.08) 0%, transparent 50%), ' +
-          'linear-gradient(180deg, #0d0028 0%, #140035 60%, #1a0045 100%)',
+          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(214,168,79,0.18) 0%, transparent 55%), ' +
+          'radial-gradient(ellipse 50% 40% at 85% 60%, rgba(242,154,63,0.12) 0%, transparent 50%), ' +
+          'linear-gradient(180deg, #fffdf8 0%, #fff8ec 60%, #faf3e7 100%)',
       }}
     >
       <StarField />
@@ -70,7 +70,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
       <div
         aria-hidden="true"
         className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(247,37,133,0.08) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, rgba(214,168,79,0.12) 0%, transparent 70%)' }}
       />
 
       <div className="section-gutter relative z-10 w-full max-w-7xl mx-auto py-32 pt-40">
@@ -156,7 +156,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
               <div
                 aria-hidden="true"
                 className="absolute -inset-4 rounded-3xl pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse, rgba(247,37,133,0.14) 0%, transparent 70%)' }}
+                style={{ background: 'radial-gradient(ellipse, rgba(214,168,79,0.20) 0%, transparent 70%)' }}
               />
 
               <a
@@ -214,7 +214,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
         aria-hidden="true"
         suppressHydrationWarning
       >
-        <div className="w-px h-8 bg-gradient-to-b from-transparent to-white/40" />
+        <div className="w-px h-8 bg-gradient-to-b from-transparent to-[rgba(168,117,24,0.45)]" />
         <span className="text-xs text-text-muted tracking-widest uppercase" style={{ writingMode: 'horizontal-tb' }}>
           scroll
         </span>

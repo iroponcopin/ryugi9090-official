@@ -48,7 +48,7 @@ export default function StarField() {
             top: `${star.y}%`,
             width: `${star.size}px`,
             height: `${star.size}px`,
-            background: 'white',
+            background: '#d6a84f',
             opacity: star.opacity,
             animation: reduceMotion
               ? undefined

@@ -39,8 +39,8 @@ export default function MagneticButton({
 
   const styles =
     variant === 'primary'
-      ? `${base} bg-crimson text-white hover:bg-crimson-light glow-crimson`
-      : `${base} glass-card text-text-primary hover:border-white/20`
+      ? `${base} bg-crimson text-[#2a1f08] hover:bg-[#e6bd6b] glow-crimson`
+      : `${base} glass-card text-text-primary hover:border-[rgba(168,117,24,0.45)]`
 
   return (
     <motion.a

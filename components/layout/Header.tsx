@@ -36,11 +36,11 @@ export default function Header({ locale, dict }: Props) {
       className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
       style={{
         background: scrolled
-          ? 'rgba(13,0,40,0.90)'
+          ? 'rgba(255,253,248,0.85)'
           : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : undefined,
         WebkitBackdropFilter: scrolled ? 'blur(16px)' : undefined,
-        borderBottom: scrolled ? '1px solid rgba(247,37,133,0.18)' : undefined,
+        borderBottom: scrolled ? '1px solid rgba(214,168,79,0.28)' : undefined,
       }}
     >
       <div className="section-gutter max-w-7xl mx-auto flex items-center justify-between h-16">
@@ -102,10 +102,10 @@ export default function Header({ locale, dict }: Props) {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="md:hidden overflow-hidden"
             style={{
-              background: 'rgba(13,0,40,0.96)',
+              background: 'rgba(255,253,248,0.97)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
-              borderBottom: '1px solid rgba(247,37,133,0.18)',
+              borderBottom: '1px solid rgba(214,168,79,0.28)',
             }}
           >
             <nav className="section-gutter py-4 flex flex-col gap-4" aria-label="Mobile navigation">

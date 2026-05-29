@@ -35,14 +35,14 @@ export default function About({ locale, dict }: Props) {
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #140035 0%, #1a0045 50%, #140035 100%)',
+        background: 'linear-gradient(180deg, #fffdf8 0%, #faf3e7 50%, #fffdf8 100%)',
       }}
     >
       {/* Section glow */}
       <div
         aria-hidden="true"
         className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none opacity-30"
-        style={{ background: 'radial-gradient(ellipse, rgba(76,201,240,0.08) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
+        style={{ background: 'radial-gradient(ellipse, rgba(242,154,63,0.12) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
       />
 
       <div className="section-gutter max-w-5xl mx-auto">
@@ -58,8 +58,8 @@ export default function About({ locale, dict }: Props) {
             <div
               className="relative w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0"
               style={{
-                border: '1px solid rgba(247,37,133,0.40)',
-                boxShadow: '0 0 32px rgba(247,37,133,0.22)',
+                border: '1px solid rgba(214,168,79,0.50)',
+                boxShadow: '0 8px 32px rgba(168,117,24,0.22)',
               }}
             >
               <Image
@@ -116,11 +116,11 @@ export default function About({ locale, dict }: Props) {
                     className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium transition-colors duration-150"
                     style={{
                       background: g.accent
-                        ? 'rgba(247,37,133,0.15)'
-                        : 'rgba(255,255,255,0.05)',
+                        ? 'rgba(214,168,79,0.16)'
+                        : 'rgba(31,27,22,0.04)',
                       border: g.accent
-                        ? '1px solid rgba(247,37,133,0.40)'
-                        : '1px solid rgba(255,255,255,0.10)',
+                        ? '1px solid rgba(214,168,79,0.45)'
+                        : '1px solid rgba(31,27,22,0.10)',
                       color: g.accent
                         ? 'var(--color-crimson-light)'
                         : 'var(--color-text-secondary)',

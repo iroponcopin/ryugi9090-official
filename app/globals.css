@@ -1,29 +1,39 @@
 @import "tailwindcss";
 
 /* ── Design tokens ─────────────────────────────────────────── */
+/*
+ * v2.0 palette — white / gold / soft orange luxury theme.
+ * NOTE: legacy token names are kept to avoid churn; their roles are now:
+ *   crimson       → gold (primary accent: button fills, borders, badges)
+ *   crimson-light → deep bronze-gold (accent TEXT & links, legible on white)
+ *   gold          → deep amber (small accent labels on white)
+ *   gold-light    → pale gold (gradients / decoration)
+ *   sky           → soft orange (small effects / glow)
+ *   depth-*        → light surfaces (base → warm ivory)
+ */
 @theme {
-  /* Surfaces — Nisou Rakuen street purple */
-  --color-depth-950: #0d0028;
-  --color-depth-900: #140035;
-  --color-depth-800: #1a0045;
-  --color-depth-700: #220058;
-  --color-depth-600: #2a006a;
+  /* Surfaces — warm white / ivory / pearl */
+  --color-depth-950: #fffdf8;
+  --color-depth-900: #ffffff;
+  --color-depth-800: #faf3e7;
+  --color-depth-700: #f4e8d4;
+  --color-depth-600: #eeddbf;
 
-  /* Accents — Sparxie pink + cyan */
-  --color-crimson:       #f72585;
-  --color-crimson-light: #ff4da6;
-  --color-gold:          #4cc9f0;
-  --color-gold-light:    #80d8f7;
-  --color-sky:           #a855f7;
+  /* Accents — gold (primary) + soft orange (secondary) */
+  --color-crimson:       #d6a84f;
+  --color-crimson-light: #9a6b14;
+  --color-gold:          #b9791e;
+  --color-gold-light:    #f2dca3;
+  --color-sky:           #f29a3f;
 
-  /* Text — light on dark */
-  --color-text-primary:   #f8f0ff;
-  --color-text-secondary: rgba(248, 240, 255, 0.65);
-  --color-text-muted:     rgba(248, 240, 255, 0.38);
+  /* Text — charcoal on light */
+  --color-text-primary:   #1f1f1f;
+  --color-text-secondary: #5c554c;
+  --color-text-muted:     #8a8178;
 
-  /* Borders */
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-card:   rgba(255, 255, 255, 0.10);
+  /* Borders — gold-tinted */
+  --color-border-subtle: rgba(168, 117, 24, 0.18);
+  --color-border-card:   rgba(214, 168, 79, 0.28);
 
   /* Fonts */
   --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
@@ -98,8 +108,8 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar        { width: 6px; }
 ::-webkit-scrollbar-track  { background: var(--color-depth-900); }
-::-webkit-scrollbar-thumb  { background: rgba(247,37,133,0.35); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(247,37,133,0.60); }
+::-webkit-scrollbar-thumb  { background: rgba(214,168,79,0.50); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(168,117,24,0.65); }
 
 /* Focus ring */
 :focus-visible {
@@ -119,11 +129,11 @@ body {
 
 /* ── Utility classes ───────────────────────────────────────── */
 .glass-card {
-  background: rgba(26, 0, 70, 0.60);
-  border: 1px solid rgba(247, 37, 133, 0.15);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(214, 168, 79, 0.28);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 0 24px rgba(247, 37, 133, 0.06);
+  box-shadow: 0 6px 28px rgba(168, 117, 24, 0.10), 0 1px 2px rgba(31, 31, 31, 0.04);
 }
 
 .section-gutter {
@@ -147,11 +157,11 @@ body {
 }
 
 .glow-crimson {
-  box-shadow: 0 0 40px rgba(247, 37, 133, 0.40), 0 0 80px rgba(247, 37, 133, 0.18);
+  box-shadow: 0 8px 24px rgba(214, 168, 79, 0.32), 0 2px 8px rgba(168, 117, 24, 0.18);
 }
 
 .glow-gold {
-  box-shadow: 0 0 40px rgba(76, 201, 240, 0.30), 0 0 80px rgba(76, 201, 240, 0.12);
+  box-shadow: 0 8px 24px rgba(242, 154, 63, 0.28), 0 2px 8px rgba(242, 154, 63, 0.12);
 }
 
 .section-label {

@@ -41,14 +41,14 @@ export default function FeaturedVideos({ locale, dict, videos }: Props) {
       id="videos"
       ref={ref}
       className="relative py-24 md:py-32"
-      style={{ background: 'linear-gradient(180deg, #140035 0%, #0d0028 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #faf3e7 0%, #fffdf8 100%)' }}
     >
       {/* Background glow */}
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-0 w-[500px] h-[300px] pointer-events-none opacity-20"
         style={{
-          background: 'radial-gradient(ellipse, rgba(76,201,240,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(242,154,63,0.12) 0%, transparent 70%)',
           transform: 'translate(-20%, 20%)',
         }}
       />

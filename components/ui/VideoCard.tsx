@@ -55,7 +55,7 @@ export default function VideoCard({
 
         {/* Type badge */}
         <div className="absolute bottom-3 left-3">
-          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-crimson/90 text-white backdrop-blur-sm">
+          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-crimson/95 text-[#2a1f08] backdrop-blur-sm">
             {typeLabel}
           </span>
         </div>
