@@ -91,9 +91,73 @@ export const featuredVideos = [
 ]
 
 export const series = [
-  { nameJa: '崩壊：スターレイル', nameEn: 'Honkai: Star Rail', icon: '/games/honkai-star-rail.png', accent: true },
-  { nameJa: 'テイルズシリーズ', nameEn: 'Tales Series', icon: '/games/tales.png', accent: false },
-  { nameJa: 'League of Legends', nameEn: 'League of Legends', icon: '/games/league-of-legends.png', accent: false },
-  { nameJa: 'モンスターハンター', nameEn: 'Monster Hunter', icon: '/games/monster-hunter.png', accent: false },
-  { nameJa: 'APEX Legends', nameEn: 'APEX Legends', icon: '/games/apex-legends.png', accent: false },
+  {
+    nameJa: '崩壊：スターレイル',
+    nameEn: 'Honkai: Star Rail',
+    icon: '/games/honkai-star-rail.png',
+    accent: true,
+    descJa: '推しへの熱量と、ゆっくり実況で楽しむスタレ動画。',
+    descEn: 'Star Rail runs powered by genuine love for the characters.',
+    tagJa: '注目シリーズ',
+    tagEn: 'Featured',
+  },
+  {
+    nameJa: 'テイルズシリーズ',
+    nameEn: 'Tales Series',
+    icon: '/games/tales.png',
+    accent: false,
+    descJa: '最高難易度に挑む、ゆっくり達のテイルズ実況。',
+    descEn: 'Tales playthroughs taking on the hardest difficulty.',
+    tagJa: 'ゆっくり実況',
+    tagEn: 'Yukkuri',
+  },
+  {
+    nameJa: 'League of Legends',
+    nameEn: 'League of Legends',
+    icon: '/games/league-of-legends.png',
+    accent: false,
+    descJa: 'ゆっくり実況で送る、LoLのプレイ動画。',
+    descEn: 'League of Legends gameplay, Yukkuri style.',
+    tagJa: 'ゆっくり実況',
+    tagEn: 'Yukkuri',
+  },
+  {
+    nameJa: 'モンスターハンター',
+    nameEn: 'Monster Hunter',
+    icon: '/games/monster-hunter.png',
+    accent: false,
+    descJa: '仲間と狩りに出る、モンハンゆっくり実況。',
+    descEn: 'Heading out on hunts with the squad.',
+    tagJa: 'ゆっくり実況',
+    tagEn: 'Yukkuri',
+  },
+  {
+    nameJa: 'APEX Legends',
+    nameEn: 'APEX Legends',
+    icon: '/games/apex-legends.png',
+    accent: false,
+    descJa: 'テンション全開で送る、Apexゆっくり実況。',
+    descEn: 'High-energy Apex Legends commentary.',
+    tagJa: 'ゆっくり実況',
+    tagEn: 'Yukkuri',
+  },
+]
+
+// Games planned for future streams / video coverage (not confirmed regular content).
+export const upcomingContent = [
+  {
+    key: 'nte',
+    titleJa: 'NTE: Neverness to Everness',
+    titleEn: 'NTE: Neverness to Everness',
+    // short copy for the Video mega menu
+    shortJa: '今後配信・動画化候補として追加予定の、新作オープンワールドRPG。',
+    shortEn: 'A new open-world RPG lined up as a future stream / video candidate.',
+    // full copy for the Upcoming section card
+    descJa: '超現実都市を舞台にしたオープンワールドRPG。今後の配信・動画化候補として、竜義9090の活動ラインナップに追加予定。',
+    descEn: 'A supernatural urban open-world RPG planned as a future candidate for streams or video content on the channel.',
+    statusJa: '配信予定',
+    statusEn: 'Upcoming',
+    formatJa: '配信 / 動画',
+    formatEn: 'Stream / Video',
+  },
 ]

@@ -1,9 +1,16 @@
 export const ja = {
   nav: {
+    home: 'ホーム',
     about: 'プロフィール',
     videos: '動画',
     series: 'シリーズ',
+    future: '今後の予定',
     links: 'リンク',
+  },
+  videoMenu: {
+    heading: 'シリーズから探す',
+    otherTitle: 'その他ゲーム',
+    otherDesc: 'チャンネルでは他にも様々なゲームを実況中。',
   },
   hero: {
     tagline: '気ままに遊ぶ。ゆっくり語る。',
@@ -30,6 +37,12 @@ export const ja = {
   series: {
     sectionTitle: 'シリーズ',
     description: '今まで実況してきたゲームたち',
+  },
+  upcoming: {
+    sectionTitle: 'Upcoming',
+    heading: '今後配信・投稿予定のコンテンツ',
+    intro: '今後の配信・動画化を予定している、注目のタイトル。',
+    formatLabel: '予定形式',
   },
   social: {
     sectionTitle: 'リンク',

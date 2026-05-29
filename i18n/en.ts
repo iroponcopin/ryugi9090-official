@@ -2,10 +2,17 @@ import type { Dictionary } from './ja'
 
 export const en: Dictionary = {
   nav: {
+    home: 'Home',
     about: 'About',
     videos: 'Videos',
     series: 'Series',
+    future: 'Future',
     links: 'Links',
+  },
+  videoMenu: {
+    heading: 'Browse by series',
+    otherTitle: 'Other Games',
+    otherDesc: 'Plenty of other titles are covered on the channel.',
   },
   hero: {
     tagline: 'Playing freely. Commentating calmly.',
@@ -32,6 +39,12 @@ export const en: Dictionary = {
   series: {
     sectionTitle: 'Series',
     description: 'Games covered on the channel',
+  },
+  upcoming: {
+    sectionTitle: 'Upcoming',
+    heading: 'Upcoming Streams & Future Content',
+    intro: 'Notable titles lined up for future streams and videos.',
+    formatLabel: 'Planned format',
   },
   social: {
     sectionTitle: 'Links',
