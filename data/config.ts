@@ -160,4 +160,19 @@ export const upcomingContent = [
     formatJa: '配信 / 動画',
     formatEn: 'Stream / Video',
   },
+  {
+    key: 'wuwa',
+    titleJa: 'Wuthering Waves（鳴潮）',
+    titleEn: 'Wuthering Waves',
+    // short copy for the Video mega menu
+    shortJa: '今後配信・動画化候補として追加予定の、オープンワールドアクションRPG。',
+    shortEn: 'An open-world action RPG lined up as a future stream / video candidate.',
+    // full copy for the Upcoming section card
+    descJa: '退廃的な世界を舞台にしたオープンワールドアクションRPG。今後の配信・動画化候補として、竜義9090の活動ラインナップに追加予定。',
+    descEn: 'A post-apocalyptic open-world action RPG planned as a future candidate for streams or video content on the channel.',
+    statusJa: '配信予定',
+    statusEn: 'Upcoming',
+    formatJa: '配信 / 動画',
+    formatEn: 'Stream / Video',
+  },
 ]

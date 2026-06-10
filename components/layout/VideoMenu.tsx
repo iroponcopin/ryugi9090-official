@@ -34,15 +34,14 @@ export function buildVideoMenuItems(locale: Locale, dict: Dictionary): VideoMenu
     accent: s.accent,
   }))
 
-  const nte = upcomingContent[0]
-  const future: VideoMenuItem = {
-    key: nte.key,
-    name: isJa ? nte.titleJa : nte.titleEn,
-    desc: isJa ? nte.shortJa : nte.shortEn,
-    tag: isJa ? nte.statusJa : nte.statusEn,
+  const futures: VideoMenuItem[] = upcomingContent.map((u) => ({
+    key: u.key,
+    name: isJa ? u.titleJa : u.titleEn,
+    desc: isJa ? u.shortJa : u.shortEn,
+    tag: isJa ? u.statusJa : u.statusEn,
     icon: null,
     href: '#upcoming',
-  }
+  }))
 
   const other: VideoMenuItem = {
     key: 'other',
@@ -53,7 +52,7 @@ export function buildVideoMenuItems(locale: Locale, dict: Dictionary): VideoMenu
     external: true,
   }
 
-  return [...games, future, other]
+  return [...games, ...futures, other]
 }
 
 /** Abstract gold / city-light visual used when an item has no game icon. */
