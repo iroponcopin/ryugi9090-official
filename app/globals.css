@@ -78,6 +78,18 @@
   100% { background-position:  200% center; }
 }
 
+@keyframes hero-sweep {
+  0%   { transform: translateX(-130%) skewX(-14deg); opacity: 0; }
+  10%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateX(380%) skewX(-14deg); opacity: 0; }
+}
+
+@keyframes bg-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(42px, -26px); }
+}
+
 /* ── Base ──────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -175,4 +187,56 @@ body {
 .line-mask {
   overflow: hidden;
   display: block;
+}
+
+/* One-time gold light sweep across the hero on load */
+.hero-sweep {
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  left: 0;
+  width: 38%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(214, 168, 79, 0.08) 30%,
+    rgba(255, 255, 255, 0.50) 50%,
+    rgba(214, 168, 79, 0.08) 70%,
+    transparent 100%
+  );
+  transform: translateX(-130%) skewX(-14deg);
+  opacity: 0;
+  animation: hero-sweep 2.4s var(--ease-spring) 0.9s 1 forwards;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Soft light sweep across buttons on hover */
+.btn-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.btn-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 55%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: translateX(-170%) skewX(-16deg);
+  transition: transform 0.65s var(--ease-spring);
+  pointer-events: none;
+}
+.btn-sweep:hover::after,
+.btn-sweep:focus-visible::after {
+  transform: translateX(330%) skewX(-16deg);
+}
+
+::selection {
+  background: rgba(214, 168, 79, 0.30);
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
 }

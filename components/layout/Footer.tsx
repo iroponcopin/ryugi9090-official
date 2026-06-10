@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import type { Locale, Dictionary } from '@/i18n'
 import { creator } from '@/data/config'
 
@@ -18,7 +21,14 @@ export default function Footer({ locale, dict }: Props) {
         borderTop: '1px solid rgba(214,168,79,0.28)',
       }}
     >
-      <div className="section-gutter max-w-6xl mx-auto py-10">
+      <motion.div
+        className="section-gutter max-w-6xl mx-auto py-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-30px' }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        suppressHydrationWarning
+      >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
 
           {/* Left: name + disclaimer */}
@@ -57,7 +67,7 @@ export default function Footer({ locale, dict }: Props) {
           </div>
 
         </div>
-      </div>
+      </motion.div>
     </footer>
   )
 }

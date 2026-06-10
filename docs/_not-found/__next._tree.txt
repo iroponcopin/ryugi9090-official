@@ -1,2 +1,2 @@
-:HL["/ryugi9090-official/_next/static/chunks/0la9p5ofcs7m..css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"Yv61InPiKgVU6NFAZEOC0"}
+:HL["/ryugi9090-official/_next/static/chunks/0.vth~_f61-~t.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"ct1rEcydQQydq-5WLuod_"}

@@ -33,9 +33,9 @@ export default function About({ locale, dict }: Props) {
     <section
       id="about"
       ref={ref}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-28 md:py-40 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #fffdf8 0%, #faf3e7 50%, #fffdf8 100%)',
+        background: 'linear-gradient(180deg, #faf3e7 0%, #fffdf8 50%, #faf3e7 100%)',
       }}
     >
       {/* Section glow */}

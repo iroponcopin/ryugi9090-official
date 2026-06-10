@@ -35,7 +35,7 @@ export default function MagneticButton({
   const handleMouseLeave = () => setPos({ x: 0, y: 0 })
 
   const base =
-    'relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-shadow duration-200 select-none'
+    'btn-sweep relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-shadow duration-200 select-none'
 
   const styles =
     variant === 'primary'

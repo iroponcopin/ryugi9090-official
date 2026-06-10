@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import type { Locale, Dictionary } from '@/i18n'
 import MagneticButton from '@/components/ui/MagneticButton'
+import SectionHeading from '@/components/ui/SectionHeading'
 import { creator } from '@/data/config'
 
 interface Props {
@@ -32,7 +33,7 @@ export default function SocialCTA({ locale, dict }: Props) {
     <section
       id="links"
       ref={ref}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-28 md:py-40 overflow-hidden"
       style={{
         background:
           'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(214,168,79,0.12) 0%, transparent 70%), ' +
@@ -47,28 +48,23 @@ export default function SocialCTA({ locale, dict }: Props) {
       />
 
       <div className="section-gutter max-w-4xl mx-auto text-center">
-        <motion.span className="section-label block mb-4" {...fadeUp(0)} suppressHydrationWarning>
-          {social.sectionTitle}
-        </motion.span>
-
-        <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4"
-          {...fadeUp(0.1)}
-          suppressHydrationWarning
-        >
-          {locale === 'ja' ? '竜義9090を応援する' : 'Support 竜義9090'}
-        </motion.h2>
-
-        <motion.p className="text-text-secondary text-base max-w-md mx-auto mb-12" {...fadeUp(0.2)} suppressHydrationWarning>
-          {locale === 'ja'
-            ? 'チャンネル登録・フォローで最新動画を見逃さずに。'
-            : 'Subscribe and follow to stay up to date with new videos.'}
-        </motion.p>
+        <SectionHeading
+          align="center"
+          label={social.sectionTitle}
+          title={locale === 'ja' ? '竜義9090を応援する' : 'Support 竜義9090'}
+          intro={
+            locale === 'ja'
+              ? 'チャンネル登録・フォローで最新動画を見逃さずに。'
+              : 'Subscribe and follow to stay up to date with new videos.'
+          }
+          titleClassName="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary"
+          className="mb-12"
+        />
 
         {/* Cards */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12 max-w-xl mx-auto"
-          {...fadeUp(0.3)}
+          {...fadeUp(0.15)}
           suppressHydrationWarning
         >
           {/* YouTube */}
@@ -119,7 +115,7 @@ export default function SocialCTA({ locale, dict }: Props) {
         </motion.div>
 
         {/* Main CTAs */}
-        <motion.div className="flex flex-wrap justify-center gap-4" {...fadeUp(0.4)} suppressHydrationWarning>
+        <motion.div className="flex flex-wrap justify-center gap-4" {...fadeUp(0.3)} suppressHydrationWarning>
           <MagneticButton href={creator.youtubeUrl} variant="primary">
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
               <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.2 5 12 5 12 5s-4.2 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.2.8 1.6.2 6.8.2 6.8.2s4.2 0 7-.1c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.7 14.5V9.1l5.6 2.7-5.6 2.7z" />

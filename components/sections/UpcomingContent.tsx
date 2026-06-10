@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import type { Locale, Dictionary } from '@/i18n'
 import { upcomingContent } from '@/data/config'
+import SectionHeading from '@/components/ui/SectionHeading'
 
 interface Props {
   locale: Locale
@@ -45,21 +46,16 @@ export default function UpcomingContent({ locale, dict }: Props) {
     <section
       id="upcoming"
       ref={ref}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-28 md:py-40 overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #fffdf8 0%, #fff8ec 100%)' }}
     >
       <div className="section-gutter max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: shouldReduce ? 0 : 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: EASE }}
+        <SectionHeading
+          label={upcoming.sectionTitle}
+          title={upcoming.heading}
+          intro={upcoming.intro}
           className="mb-10"
-          suppressHydrationWarning
-        >
-          <span className="section-label block mb-3">{upcoming.sectionTitle}</span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">{upcoming.heading}</h2>
-          <p className="text-text-secondary text-sm sm:text-base mt-3 max-w-2xl">{upcoming.intro}</p>
-        </motion.div>
+        />
 
         <div className="space-y-5">
           {upcomingContent.map((item, i) => (

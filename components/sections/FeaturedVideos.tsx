@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import type { Locale, Dictionary } from '@/i18n'
 import type { featuredVideos } from '@/data/config'
 import VideoCard from '@/components/ui/VideoCard'
+import SectionHeading from '@/components/ui/SectionHeading'
 import { creator } from '@/data/config'
 
 interface Props {
@@ -32,15 +33,15 @@ export default function FeaturedVideos({ locale, dict, videos }: Props) {
   }
 
   const cardVariants = {
-    hidden: shouldReduce ? { opacity: 0 } : { opacity: 0, y: 32 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
+    hidden: shouldReduce ? { opacity: 0 } : { opacity: 0, y: 32, scale: 0.97 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: EASE } },
   }
 
   return (
     <section
       id="videos"
       ref={ref}
-      className="relative py-24 md:py-32"
+      className="relative py-28 md:py-40"
       style={{ background: 'linear-gradient(180deg, #faf3e7 0%, #fffdf8 100%)' }}
     >
       {/* Background glow */}
@@ -54,18 +55,10 @@ export default function FeaturedVideos({ locale, dict, videos }: Props) {
       />
 
       <div className="section-gutter max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: shouldReduce ? 0 : 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="mb-12"
-          suppressHydrationWarning
-        >
-          <span className="section-label block mb-3">{v.sectionTitle}</span>
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
-              {locale === 'ja' ? '注目動画' : 'Featured Videos'}
-            </h2>
+        <SectionHeading
+          label={v.sectionTitle}
+          title={locale === 'ja' ? '注目動画' : 'Featured Videos'}
+          trailing={
             <a
               href={creator.youtubeUrl}
               target="_blank"
@@ -74,8 +67,8 @@ export default function FeaturedVideos({ locale, dict, videos }: Props) {
             >
               {v.youtubeLabel} →
             </a>
-          </div>
-        </motion.div>
+          }
+        />
 
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"

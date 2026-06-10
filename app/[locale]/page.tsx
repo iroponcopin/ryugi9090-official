@@ -6,6 +6,7 @@ import About from '@/components/sections/About'
 import FeaturedVideos from '@/components/sections/FeaturedVideos'
 import Series from '@/components/sections/Series'
 import UpcomingContent from '@/components/sections/UpcomingContent'
+import CreatorStyle from '@/components/sections/CreatorStyle'
 import SocialCTA from '@/components/sections/SocialCTA'
 
 export default async function LocalePage({
@@ -24,6 +25,7 @@ export default async function LocalePage({
       <FeaturedVideos locale={safeLocale} dict={dict} videos={featuredVideos} />
       <Series locale={safeLocale} dict={dict} seriesList={series} />
       <UpcomingContent locale={safeLocale} dict={dict} />
+      <CreatorStyle locale={safeLocale} dict={dict} />
       <SocialCTA locale={safeLocale} dict={dict} />
     </>
   )

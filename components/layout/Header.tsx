@@ -34,6 +34,7 @@ export default function Header({ locale, dict }: Props) {
     { href: '#about', label: nav.about },
   ]
   const tailLinks = [
+    { href: '#series', label: nav.series },
     { href: '#upcoming', label: nav.future },
     { href: '#links', label: nav.links },
   ]
@@ -200,6 +201,9 @@ export default function Header({ locale, dict }: Props) {
                 )}
               </AnimatePresence>
 
+              <a href="#series" onClick={closeMobile} className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-150 py-1">
+                {nav.series}
+              </a>
               <a href="#upcoming" onClick={closeMobile} className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-150 py-1">
                 {nav.future}
               </a>

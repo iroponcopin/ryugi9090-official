@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import type { Locale, Dictionary } from '@/i18n'
 import type { series } from '@/data/config'
+import SectionHeading from '@/components/ui/SectionHeading'
 
 interface Props {
   locale: Locale
@@ -40,22 +41,13 @@ export default function Series({ locale, dict, seriesList }: Props) {
     <section
       id="series"
       ref={ref}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-28 md:py-40 overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #fffdf8 0%, #faf3e7 50%, #fffdf8 100%)',
       }}
     >
       <div className="section-gutter max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: shouldReduce ? 0 : 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="mb-12"
-          suppressHydrationWarning
-        >
-          <span className="section-label block mb-3">{s.sectionTitle}</span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">{s.description}</h2>
-        </motion.div>
+        <SectionHeading label={s.sectionTitle} title={s.description} />
 
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4"
@@ -68,6 +60,7 @@ export default function Series({ locale, dict, seriesList }: Props) {
             <motion.div
               key={item.nameJa}
               variants={itemVariants}
+              whileHover={shouldReduce ? undefined : { y: -4, transition: { duration: 0.25, ease: EASE } }}
               className="group"
               suppressHydrationWarning
             >

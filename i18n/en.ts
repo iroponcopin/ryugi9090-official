@@ -46,6 +46,24 @@ export const en: Dictionary = {
     intro: 'Notable titles lined up for future streams and videos.',
     formatLabel: 'Planned format',
   },
+  creatorStyle: {
+    sectionTitle: 'Style',
+    heading: 'The Ryugi9090 Style',
+    items: [
+      {
+        title: 'Yukkuri Commentary',
+        body: 'Gameplay delivered through the playful banter of Yukkuri characters.',
+      },
+      {
+        title: 'Fueled by Passion',
+        body: 'Love for favourite characters — Sparkle above all — powers every video.',
+      },
+      {
+        title: 'At My Own Pace',
+        body: 'No upload schedule. Whatever is most fun right now gets covered.',
+      },
+    ],
+  },
   social: {
     sectionTitle: 'Links',
     youtubeDesc: 'Yukkuri gameplay commentary',

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import type { Locale, Dictionary } from '@/i18n'
 import type { featuredVideos } from '@/data/config'
@@ -29,15 +29,21 @@ function AnimatedLine({
   shouldReduce: boolean
 }) {
   return (
-    <motion.span
-      className={`block ${className ?? ''}`}
-      initial={{ opacity: 0, y: shouldReduce ? 0 : 28 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.85, ease: EASE_SPRING, delay }}
-      suppressHydrationWarning
-    >
-      {children}
-    </motion.span>
+    <span className={`line-mask ${className ?? ''}`}>
+      <motion.span
+        className="block"
+        initial={{ y: '112%' }}
+        animate={{ y: '0%' }}
+        transition={{
+          duration: shouldReduce ? 0.01 : 0.9,
+          ease: EASE_SPRING,
+          delay: shouldReduce ? 0 : delay,
+        }}
+        suppressHydrationWarning
+      >
+        {children}
+      </motion.span>
+    </span>
   )
 }
 
@@ -49,9 +55,14 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
   const { hero } = dict
   const isJa = locale === 'ja'
 
+  // Scroll-linked depth: foreground text rises fastest, card mid, particles lag behind.
+  const { scrollY } = useScroll()
+  const textY = useTransform(scrollY, [0, 700], [0, -70])
+  const cardY = useTransform(scrollY, [0, 700], [0, -26])
+  const starsY = useTransform(scrollY, [0, 700], [0, 60])
+
   const videoTitle = isJa ? featuredVideo.titleJa : featuredVideo.titleEn
   const videoGame = isJa ? featuredVideo.game : featuredVideo.gameEn
-  const videoType = isJa ? featuredVideo.type : featuredVideo.typeEn
 
   return (
     <section
@@ -64,20 +75,39 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
           'linear-gradient(180deg, #fffdf8 0%, #fff8ec 60%, #faf3e7 100%)',
       }}
     >
-      <StarField />
+      {/* Particles drift slower than the foreground while scrolling */}
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={shouldReduce ? undefined : { y: starsY }}
+      >
+        <StarField />
+      </motion.div>
 
-      {/* Subtle radial glow behind content */}
+      {/* One-time gold light sweep on load */}
+      <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="hero-sweep" />
+      </div>
+
+      {/* Slow-drifting ambient glow */}
       <div
         aria-hidden="true"
-        className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(214,168,79,0.12) 0%, transparent 70%)' }}
-      />
+        className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
+      >
+        <div
+          className="w-full h-full rounded-full"
+          style={{
+            background: 'radial-gradient(ellipse, rgba(214,168,79,0.12) 0%, transparent 70%)',
+            animation: 'bg-drift 16s ease-in-out infinite',
+          }}
+        />
+      </div>
 
       <div className="section-gutter relative z-10 w-full max-w-7xl mx-auto py-32 pt-40">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px] gap-12 xl:gap-16 items-center">
 
-          {/* Left: Text content */}
-          <div className="space-y-8">
+          {/* Left: Text content (fast parallax layer) */}
+          <motion.div className="space-y-8" style={shouldReduce ? undefined : { y: textY }}>
             {/* Creator name */}
             <div>
               <motion.span
@@ -141,65 +171,66 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
                 {hero.ctaX}
               </MagneticButton>
             </motion.div>
-          </div>
+          </motion.div>
 
-          {/* Right: Featured video card */}
-          <motion.div
-            className="w-full"
-            initial={shouldReduce ? { opacity: 0 } : { opacity: 0, x: 40, y: 10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 1.0, ease: EASE_SPRING, delay: 1.1 }}
-            suppressHydrationWarning
-          >
-            <div className="relative">
-              {/* Glow behind card */}
-              <div
-                aria-hidden="true"
-                className="absolute -inset-4 rounded-3xl pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse, rgba(214,168,79,0.20) 0%, transparent 70%)' }}
-              />
+          {/* Right: Featured video card (mid parallax layer for depth) */}
+          <motion.div className="w-full" style={shouldReduce ? undefined : { y: cardY }}>
+            <motion.div
+              initial={shouldReduce ? { opacity: 0 } : { opacity: 0, x: 40, y: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1.0, ease: EASE_SPRING, delay: 1.1 }}
+              suppressHydrationWarning
+            >
+              <div className="relative">
+                {/* Glow behind card */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-4 rounded-3xl pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse, rgba(214,168,79,0.20) 0%, transparent 70%)' }}
+                />
 
-              <a
-                href={`https://www.youtube.com/watch?v=${featuredVideo.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block glass-card rounded-2xl overflow-hidden"
-              >
-                {/* Label */}
-                <div className="px-4 pt-4 pb-2 flex items-center justify-between">
-                  <span className="section-label">{hero.featuredLabel}</span>
-                  <span className="text-xs text-text-muted">YouTube</span>
-                </div>
+                <a
+                  href={`https://www.youtube.com/watch?v=${featuredVideo.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block glass-card rounded-2xl overflow-hidden"
+                >
+                  {/* Label */}
+                  <div className="px-4 pt-4 pb-2 flex items-center justify-between">
+                    <span className="section-label">{hero.featuredLabel}</span>
+                    <span className="text-xs text-text-muted">YouTube</span>
+                  </div>
 
-                {/* Thumbnail */}
-                <div className="relative overflow-hidden mx-4 mb-4 rounded-xl aspect-video">
-                  <Image
-                    src={`https://img.youtube.com/vi/${featuredVideo.id}/maxresdefault.jpg`}
-                    alt={videoTitle}
-                    fill
-                    sizes="460px"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  {/* Thumbnail */}
+                  <div className="relative overflow-hidden mx-4 mb-4 rounded-xl aspect-video">
+                    <Image
+                      src={`https://img.youtube.com/vi/${featuredVideo.id}/maxresdefault.jpg`}
+                      alt={videoTitle}
+                      fill
+                      sizes="460px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                  {/* Play button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
-                      <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 ml-0.5" aria-hidden="true">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                    {/* Play button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                        <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 ml-0.5" aria-hidden="true">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Metadata */}
-                <div className="px-4 pb-4">
-                  <p className="text-xs font-semibold text-gold mb-1">{videoGame}</p>
-                  <p className="text-sm text-text-primary font-medium leading-snug line-clamp-2">{videoTitle}</p>
-                </div>
-              </a>
-            </div>
+                  {/* Metadata */}
+                  <div className="px-4 pb-4">
+                    <p className="text-xs font-semibold text-gold mb-1">{videoGame}</p>
+                    <p className="text-sm text-text-primary font-medium leading-snug line-clamp-2">{videoTitle}</p>
+                  </div>
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
 
         </div>
