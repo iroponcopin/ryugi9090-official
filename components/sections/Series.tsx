@@ -6,6 +6,7 @@ import Image from 'next/image'
 import type { Locale, Dictionary } from '@/i18n'
 import type { series } from '@/data/config'
 import SectionHeading from '@/components/ui/SectionHeading'
+import ScrollDrift from '@/components/ui/ScrollDrift'
 
 interface Props {
   locale: Locale
@@ -49,6 +50,7 @@ export default function Series({ locale, dict, seriesList }: Props) {
       <div className="section-gutter max-w-5xl mx-auto">
         <SectionHeading label={s.sectionTitle} title={s.description} />
 
+        <ScrollDrift mode="settle" y={[50, 0]} scale={[0.985, 1]}>
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4"
           variants={containerVariants}
@@ -96,6 +98,7 @@ export default function Series({ locale, dict, seriesList }: Props) {
             </motion.div>
           ))}
         </motion.div>
+        </ScrollDrift>
       </div>
     </section>
   )

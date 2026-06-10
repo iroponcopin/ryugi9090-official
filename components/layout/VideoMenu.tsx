@@ -39,7 +39,7 @@ export function buildVideoMenuItems(locale: Locale, dict: Dictionary): VideoMenu
     name: isJa ? u.titleJa : u.titleEn,
     desc: isJa ? u.shortJa : u.shortEn,
     tag: isJa ? u.statusJa : u.statusEn,
-    icon: null,
+    icon: u.icon ?? null,
     href: '#upcoming',
   }))
 

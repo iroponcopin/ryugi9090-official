@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import type { Locale, Dictionary } from '@/i18n'
 import MagneticButton from '@/components/ui/MagneticButton'
 import SectionHeading from '@/components/ui/SectionHeading'
+import ScrollDrift from '@/components/ui/ScrollDrift'
 import { creator } from '@/data/config'
 
 interface Props {
@@ -62,8 +63,9 @@ export default function SocialCTA({ locale, dict }: Props) {
         />
 
         {/* Cards */}
+        <ScrollDrift mode="settle" y={[36, 0]} className="mb-12">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12 max-w-xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto"
           {...fadeUp(0.15)}
           suppressHydrationWarning
         >
@@ -113,6 +115,7 @@ export default function SocialCTA({ locale, dict }: Props) {
             </a>
           </div>
         </motion.div>
+        </ScrollDrift>
 
         {/* Main CTAs */}
         <motion.div className="flex flex-wrap justify-center gap-4" {...fadeUp(0.3)} suppressHydrationWarning>

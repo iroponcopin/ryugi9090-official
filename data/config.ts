@@ -149,6 +149,7 @@ export const upcomingContent = [
     key: 'nte',
     titleJa: 'NTE: Neverness to Everness',
     titleEn: 'NTE: Neverness to Everness',
+    icon: '/games/nte.png',
     // short copy for the Video mega menu
     shortJa: '今後配信・動画化候補として追加予定の、新作オープンワールドRPG。',
     shortEn: 'A new open-world RPG lined up as a future stream / video candidate.',
@@ -164,6 +165,7 @@ export const upcomingContent = [
     key: 'wuwa',
     titleJa: 'Wuthering Waves（鳴潮）',
     titleEn: 'Wuthering Waves',
+    icon: '/games/wuthering-waves.png',
     // short copy for the Video mega menu
     shortJa: '今後配信・動画化候補として追加予定の、オープンワールドアクションRPG。',
     shortEn: 'An open-world action RPG lined up as a future stream / video candidate.',

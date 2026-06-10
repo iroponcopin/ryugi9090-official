@@ -59,6 +59,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
   const { scrollY } = useScroll()
   const textY = useTransform(scrollY, [0, 700], [0, -70])
   const cardY = useTransform(scrollY, [0, 700], [0, -26])
+  const cardScale = useTransform(scrollY, [0, 700], [1, 0.955])
   const starsY = useTransform(scrollY, [0, 700], [0, 60])
 
   const videoTitle = isJa ? featuredVideo.titleJa : featuredVideo.titleEn
@@ -174,7 +175,7 @@ export default function Hero({ locale, dict, featuredVideo }: Props) {
           </motion.div>
 
           {/* Right: Featured video card (mid parallax layer for depth) */}
-          <motion.div className="w-full" style={shouldReduce ? undefined : { y: cardY }}>
+          <motion.div className="w-full" style={shouldReduce ? undefined : { y: cardY, scale: cardScale }}>
             <motion.div
               initial={shouldReduce ? { opacity: 0 } : { opacity: 0, x: 40, y: 10 }}
               animate={{ opacity: 1, x: 0, y: 0 }}

@@ -6,6 +6,7 @@ import type { Locale, Dictionary } from '@/i18n'
 import type { featuredVideos } from '@/data/config'
 import VideoCard from '@/components/ui/VideoCard'
 import SectionHeading from '@/components/ui/SectionHeading'
+import ScrollDrift from '@/components/ui/ScrollDrift'
 import { creator } from '@/data/config'
 
 interface Props {
@@ -44,15 +45,20 @@ export default function FeaturedVideos({ locale, dict, videos }: Props) {
       className="relative py-28 md:py-40"
       style={{ background: 'linear-gradient(180deg, #faf3e7 0%, #fffdf8 100%)' }}
     >
-      {/* Background glow */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-0 left-0 w-[500px] h-[300px] pointer-events-none opacity-20"
-        style={{
-          background: 'radial-gradient(ellipse, rgba(242,154,63,0.12) 0%, transparent 70%)',
-          transform: 'translate(-20%, 20%)',
-        }}
-      />
+      {/* Background glow — counter-drifts against the scroll */}
+      <ScrollDrift
+        className="absolute bottom-0 left-0 w-[500px] h-[300px] pointer-events-none"
+        y={[-40, 40]}
+      >
+        <div
+          aria-hidden="true"
+          className="w-full h-full opacity-20"
+          style={{
+            background: 'radial-gradient(ellipse, rgba(242,154,63,0.12) 0%, transparent 70%)',
+            transform: 'translate(-20%, 20%)',
+          }}
+        />
+      </ScrollDrift>
 
       <div className="section-gutter max-w-6xl mx-auto">
         <SectionHeading
@@ -70,29 +76,32 @@ export default function FeaturedVideos({ locale, dict, videos }: Props) {
           }
         />
 
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          suppressHydrationWarning
-        >
-          {videos.map((video, i) => (
-            <motion.div key={video.id} variants={cardVariants} suppressHydrationWarning>
-              <VideoCard
-                youtubeId={video.id}
-                titleJa={video.titleJa}
-                titleEn={video.titleEn}
-                game={video.game}
-                gameEn={video.gameEn}
-                type={video.type}
-                typeEn={video.typeEn}
-                locale={locale}
-                priority={i === 0}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Grid settles into place as it reaches viewport centre */}
+        <ScrollDrift mode="settle" y={[44, 0]} scale={[0.97, 1]}>
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            suppressHydrationWarning
+          >
+            {videos.map((video, i) => (
+              <motion.div key={video.id} variants={cardVariants} suppressHydrationWarning>
+                <VideoCard
+                  youtubeId={video.id}
+                  titleJa={video.titleJa}
+                  titleEn={video.titleEn}
+                  game={video.game}
+                  gameEn={video.gameEn}
+                  type={video.type}
+                  typeEn={video.typeEn}
+                  locale={locale}
+                  priority={i === 0}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </ScrollDrift>
       </div>
     </section>
   )

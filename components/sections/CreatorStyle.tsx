@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import type { Locale, Dictionary } from '@/i18n'
 import SectionHeading from '@/components/ui/SectionHeading'
+import ScrollDrift from '@/components/ui/ScrollDrift'
 
 interface Props {
   locale: Locale
@@ -82,6 +83,7 @@ export default function CreatorStyle({ locale: _locale, dict }: Props) {
       <div className="section-gutter max-w-5xl mx-auto">
         <SectionHeading label={creatorStyle.sectionTitle} title={creatorStyle.heading} />
 
+        <ScrollDrift mode="settle" y={[40, 0]} scale={[0.98, 1]}>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-5"
           variants={containerVariants}
@@ -112,6 +114,7 @@ export default function CreatorStyle({ locale: _locale, dict }: Props) {
             </motion.div>
           ))}
         </motion.div>
+        </ScrollDrift>
       </div>
     </section>
   )

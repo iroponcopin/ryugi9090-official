@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import type { Locale, Dictionary } from '@/i18n'
 import { series as gameSeries } from '@/data/config'
+import ScrollDrift from '@/components/ui/ScrollDrift'
 
 interface Props {
   locale: Locale
@@ -38,12 +39,17 @@ export default function About({ locale, dict }: Props) {
         background: 'linear-gradient(180deg, #faf3e7 0%, #fffdf8 50%, #faf3e7 100%)',
       }}
     >
-      {/* Section glow */}
-      <div
-        aria-hidden="true"
-        className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none opacity-30"
-        style={{ background: 'radial-gradient(ellipse, rgba(242,154,63,0.12) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
-      />
+      {/* Section glow — counter-drifts against the scroll */}
+      <ScrollDrift
+        className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
+        y={[-34, 34]}
+      >
+        <div
+          aria-hidden="true"
+          className="w-full h-full rounded-full opacity-30"
+          style={{ background: 'radial-gradient(ellipse, rgba(242,154,63,0.12) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
+        />
+      </ScrollDrift>
 
       <div className="section-gutter max-w-5xl mx-auto">
         <motion.span className="section-label block mb-4" {...fadeUp(0)} suppressHydrationWarning>
@@ -52,31 +58,32 @@ export default function About({ locale, dict }: Props) {
 
         <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-start">
 
-          {/* Avatar */}
-          <motion.div {...fadeUp(0.1)} className="flex flex-col items-center md:items-start gap-4" suppressHydrationWarning>
-            {/* Avatar */}
-            <div
-              className="relative w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0"
-              style={{
-                border: '1px solid rgba(214,168,79,0.50)',
-                boxShadow: '0 8px 32px rgba(168,117,24,0.22)',
-              }}
-            >
-              <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/about/avatar.png`}
-                alt="竜義9090"
-                fill
-                sizes="112px"
-                className="object-cover"
-                priority
-              />
-            </div>
+          {/* Avatar — drifts at its own depth while scrolling */}
+          <motion.div {...fadeUp(0.1)} suppressHydrationWarning>
+            <ScrollDrift y={[28, -28]} className="flex flex-col items-center md:items-start gap-4">
+              <div
+                className="relative w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0"
+                style={{
+                  border: '1px solid rgba(214,168,79,0.50)',
+                  boxShadow: '0 8px 32px rgba(168,117,24,0.22)',
+                }}
+              >
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/about/avatar.png`}
+                  alt="竜義9090"
+                  fill
+                  sizes="112px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
 
-            {/* Name under avatar */}
-            <div className="text-center md:text-left">
-              <p className="text-text-primary font-semibold">竜義9090</p>
-              <p className="text-text-muted text-xs mt-0.5">Ryugi9090</p>
-            </div>
+              {/* Name under avatar */}
+              <div className="text-center md:text-left">
+                <p className="text-text-primary font-semibold">竜義9090</p>
+                <p className="text-text-muted text-xs mt-0.5">Ryugi9090</p>
+              </div>
+            </ScrollDrift>
           </motion.div>
 
           {/* Text content */}
